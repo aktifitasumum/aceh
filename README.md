@@ -1,3 +1,6 @@
+CMD
+===
+
 D: atau E:  //pindah ke drive lain
 dir // untuk tampilkan isi folder
 md atau mkdir namaFolder // membuat folder baru
@@ -13,7 +16,6 @@ copy namaFile.txt d:\namaFolder\folderSub\ // copy file to folder lain
 move namaFile.txt tujuanFolder
 
 ren namaFile.txt namaFileHasilRename.txt //rename file
-
 
 GIT
 ===
