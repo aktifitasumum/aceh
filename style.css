@@ -125,13 +125,50 @@ button[type="reset"]:active {
   transform: translateY(0); /* Mengembalikan posisi saat diklik */
 }
 
-/* --- Catatan: Modifikasi HTML (Opsional tapi Direkomendasikan) --- */
-/* Untuk layout yang lebih baik dan konsisten, disarankan untuk 
-  membungkus setiap pasangan input (Ton & FFA) dalam sebuah div.
-  Contoh:
-  <label for="tonST1">Storage 1: </label>
-  <div class="input-group">
-      <input type="number" name="tonST1" id="tonST1" placeholder="Ton" />
-      <input type="number" name="FFAST1" id="FFAST1" placeholder="FFA" />
-  </div>
-*/
+
+/* --- 6. Tampilan Responsif untuk Mobile --- */
+@media (max-width: 600px) {
+  body {
+    /* Menyesuaikan posisi form di layar kecil */
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  form {
+    /* 1. Mengubah form menjadi layout grid 2 kolom */
+    display: grid;
+    grid-template-columns: auto 1fr; /* Kolom 1 (label) selebar isinya, Kolom 2 (input) mengisi sisa ruang */
+    align-items: center; /* Membuat label dan input sejajar di tengah secara vertikal */
+    gap: 0.75rem 1rem; /* Jarak vertikal dan horizontal antar item */
+    padding: 1.5rem; /* Mengurangi padding form agar lebih hemat ruang */
+  }
+
+  /* 2. Mengatur elemen yang tidak punya pasangan agar mengambil lebar penuh */
+  form > label[for="output"],
+  form > output,
+  form > button[type="reset"] {
+    grid-column: 1 / -1; /* Membuat elemen ini mengambil 2 kolom (lebar penuh) */
+  }
+
+  /* 3. Penyesuaian kecil pada elemen */
+  label {
+    margin-bottom: 0; /* Menghapus margin bawah pada label */
+    font-size: 0.9rem; /* Sedikit mengecilkan font label */
+  }
+  
+  .input-group {
+    /* Menghapus gap karena sudah diatur di grid form */
+    gap: 5px;
+  }
+
+  input[type="number"],
+  output,
+  button[type="reset"] {
+    padding: 10px; /* Sedikit mengurangi padding input & tombol */
+    font-size: 0.9rem;
+  }
+
+  button[type="reset"] {
+      margin-top: 0.5rem;
+  }
+}
